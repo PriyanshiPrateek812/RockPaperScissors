@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+    <link rel="stylesheet" href="lastStyles.css">
+</head>
+<body id="b">
+    <div id="winner-id"></div>
+    <script>
+        const userScore = localStorage.getItem('user-score');
+        const computerScore = localStorage.getItem('computer-score');
+        if(userScore===computerScore){
+            document.getElementById('winner-id').textContent = "It's a tie!";
+        }
+        else if(userScore>computerScore){
+            const firstName = localStorage.getItem('fname');
+            document.getElementById('winner-id').textContent = `Congratulations! ${firstName} won the game.`;
+            let bcolor = document.querySelector('#winner-id');
+            bcolor.style.backgroundColor = 'green';
+            bcolor.style.color = "white";
+        }
+        else{
+            document.getElementById('winner-id').textContent = `Sorry, Computer won the game:(`;
+            let bcolor = document.querySelector('#winner-id');
+            bcolor.style.backgroundColor = 'red';
+            bcolor.style.color = "white";
+            }
+    </script>
+</body>
+</html>
